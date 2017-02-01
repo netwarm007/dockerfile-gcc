@@ -39,7 +39,7 @@ RUN buildDeps='flex' \
 	&& cd "$dir" \
 	&& /usr/src/gcc/configure \
 		--disable-multilib \
-		--enable-languages=c,c++,fortran,go \
+		--enable-languages=c,c++,go \
 	&& make -j"$(nproc)" \
 	&& make install-strip \
 	&& cd .. \
