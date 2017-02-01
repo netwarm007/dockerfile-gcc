@@ -39,6 +39,7 @@ RUN buildDeps='flex' \
 	&& cd "$dir" \
 	&& /usr/src/gcc/configure \
 		--disable-multilib \
+		--disable-bootstrap \
 		--enable-languages=c,c++,go \
 	&& make -j"$(nproc)" \
 	&& make install-strip \
