@@ -40,7 +40,7 @@ RUN buildDeps='flex' \
 	&& /usr/src/gcc/configure \
 		--disable-multilib \
 		--disable-bootstrap \
-		--enable-languages=c,c++,go \
+		--enable-languages=c,c++ \
 	&& make -j"$(nproc)" \
 	&& make install-strip \
 	&& cd .. \
@@ -56,3 +56,5 @@ RUN set -x \
 	&& dpkg-divert --divert /usr/bin/gcc.orig --rename /usr/bin/gcc \
 	&& dpkg-divert --divert /usr/bin/g++.orig --rename /usr/bin/g++ \
 	&& update-alternatives --install /usr/bin/cc cc /usr/local/bin/gcc 999
+
+ENTRYPOINT /bin/bash -c "$@"
