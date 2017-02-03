@@ -57,4 +57,4 @@ RUN set -x \
 	&& dpkg-divert --divert /usr/bin/g++.orig --rename /usr/bin/g++ \
 	&& update-alternatives --install /usr/bin/cc cc /usr/local/bin/gcc 999
 
-ENTRYPOINT /bin/bash -c "$@"
+ENTRYPOINT ["/bin/bash", "-c"]
